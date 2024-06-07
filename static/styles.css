@@ -1,0 +1,212 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: relative;
+    background: url("/static/images/header-background.jpg");
+    background-size: cover;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3.5em;
+    font-family: 'Lobster', cursive;
+    z-index: 1;
+    position: relative;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav ul li a:hover {
+    color: #ff4500;
+}
+
+section {
+    padding: 50px 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Lobster', cursive;
+    color: #ff4500;
+}
+
+#services {
+    background-color: #f8f9fa;
+}
+
+#services .card img {
+    height: 300px;
+    object-fit: cover;
+}
+
+#booking {
+    background-color: #e9ecef;
+}
+
+#message {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+#about {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+#about img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 20px; /* Add margin to separate image and text */
+}
+
+#about img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#about p, #mission-values p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+}
+
+.section-title {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    font-family: 'Lobster', cursive;
+    color: #ff4500;
+}
+
+.fancy-title {
+    font-family: 'Lobster', cursive;
+    font-size: 3em;
+    color: #ff4500;
+}
+
+#mission-values h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-family: 'Lobster', cursive;
+    color: #ff4500;
+}
+
+.about-image-wrapper {
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-image-wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.hero-image {
+    background: url("/static/images/hero.jpg") no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 100px 0;
+    position: relative;
+}
+
+.hero-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-image h1 {
+    font-size: 4rem;
+    font-family: 'Lobster', cursive;
+    color: white;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.card {
+    border: none;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.package-details {
+    margin-top: 15px;
+}
+
+.package-details .package-detail {
+    margin-bottom: 10px;
+}
+
+.package-details .package-detail i {
+    margin-right: 8px;
+}
+
+.card-text div {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.card-text div i {
+    margin-right: 10px;
+    color: black; /* Ensures the icons are black */
+}
