@@ -17,3 +17,5 @@ administrative features to manage event packages and inquiries.
 ## More Information
 
 Please go through [Documentation](Documentation.pdf) for more information.
+
+images/1.png
