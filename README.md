@@ -13,3 +13,7 @@ administrative features to manage event packages and inquiries.
 - **Python (Flask)**: Back-end framework for handling server-side logic.
 - **Jinja2**: Template engine for rendering HTML templates in Flask.
 - **SQLite**: Lightweight SQL database used for development.
+
+## More Information
+
+Please go through [Loan_Prediction](LoanPrediction.pptx) for more information.
