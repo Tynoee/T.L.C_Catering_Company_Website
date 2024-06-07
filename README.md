@@ -18,4 +18,4 @@ administrative features to manage event packages and inquiries.
 
 Please go through [Documentation](Documentation.pdf) for more information.
 
-images/1.png
+<img src="images/1.png" alt="Alt Text">
