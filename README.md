@@ -16,4 +16,4 @@ administrative features to manage event packages and inquiries.
 
 ## More Information
 
-Please go through [Loan_Prediction](LoanPrediction.pptx) for more information.
+Please go through [Documentation](Documentation.pdf) for more information.
