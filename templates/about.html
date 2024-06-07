@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - T.L.C Catering Services</title>
+    <meta name="description" content="Learn about T.L.C Catering Services, our mission, values, and the team behind our exceptional catering service.">
+    <meta name="keywords" content="T.L.C Catering Services, catering, events, mission, values, quality, team">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">T.L.C Catering Services</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    {% if current_user.is_authenticated %}
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#contactModal">Contact</a>
+                    {% else %}
+                        <a class="nav-link" href="#" onclick="showLoginMessage()">Contact</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-image text-center text-white py-5">
+        <h1>About Us</h1>
+    </header>
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-image-wrapper">
+                        <img src="{{ url_for('static', filename='images/about.jpg') }}" class="img-fluid rounded shadow" alt="About T.L.C Catering Services">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="section-title">T.L.C Catering Services</h2>
+                    <p class="lead">Looking for a perfect food affair to complement your special occasion? Look no further! T.L.C Catering Services provide a sumptuous food itinerary to fulfill your each and every catering need. Be it a large, mid or small-sized event, our full-range of outdoor and indoor catering services cover complete food preparation and presentation for formal and informal gatherings.</p>
+                    <p class="lead">From an array of food items to choose from, T.L.C Catering Services bring to you the best from all cuisines to suit your event, tastes and pockets even. So while you leave your food worries to us, let you enjoy those special moments in all the glory. So let the celebrations begin!!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="mission-values" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="section-title">Our Mission</h3>
+                            <p>Your happiness. We at T.L.C Catering Services strive really hard and go that extra mile to bring on your guests that smiling and appeasing burp after indulging into the best of the dishes that we offer. A successful event is what we always aim for.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="section-title">Our Values</h3>
+                            <p>While we work towards adding new items to our menu, authenticity is never compromised for novelty. As we are constantly trying to make our menu dynamic by adding international flavors, T.L.C Catering Services are bound to their Indian roots by the legacy that has been created over 3 decades.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="section-title">Quality Assurance</h3>
+                            <p>Established since 1977, T.L.C Catering Services is a brand in the catering niche reputed not only for its mouth-watering taste but also for the quality of its food which has only gotten better with each passing day. We assure you the best of hygiene, service and above all a 100% vegetarian treat to your tasting senses.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="section-title">Our Team</h3>
+                            <p>Manned with a team of 1000 hard-working professionals at your service, we make sure that all your needs are fulfilled with precision par excellence, and we let you savor the taste of excellence in every bite that you take with T.L.C Catering Services.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2024 T.L.C Catering Services</p>
+    </footer>
+
+    {% if current_user.is_authenticated %}
+    <!-- Contact Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ url_for('contact') }}" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="login-username">Username:</label>
+                            <input type="text" class="form-control" id="login-username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password:</label>
+                            <input type="password" class="form-control" id="login-password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function showLoginMessage() {
+            alert('Please log in first to access the contact form.');
+        }
+    </script>
+    
+
+    
+
+</body>
+</html>

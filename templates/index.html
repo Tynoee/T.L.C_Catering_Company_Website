@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T.L.C Catering Services</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-5">
+        <h1>Welcome to T.L.C Catering Services</h1>
+        <p>A Real Diamond of Catering Industry</p>
+        <p>Looking for a perfect food affair to complement your special occasion?</p>
+        <p>Look no further! T.L.C Catering Services provide a sumptuous food itinerary to fulfill your each and every catering need. Be it a large, mid or small-sized event, our full-range of outdoor and indoor catering services cover complete food preparation and presentation for formal and informal gatherings.</p>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Our Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#booking">Book Your Event</a>
+                    </li>
+                    {% if current_user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">Register</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Spice Up Your Occasions...</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <a href="{{ url_for('birthday_packages') }}">
+                            <img src="{{ url_for('static', filename='images/birthday.jpg') }}" class="card-img-top" alt="Birthday Party">
+                        </a>
+                        <div class="card-body">
+                            <h3 class="card-title">Birthday Party Packages</h3>
+                            <p class="card-text">Choose from our range of birthday party packages to make your celebration unforgettable.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <a href="{{ url_for('wedding_packages') }}">
+                            <img src="{{ url_for('static', filename='images/wedding.jpg') }}" class="card-img-top" alt="Wedding">
+                        </a>
+                        <div class="card-body">
+                            <h3 class="card-title">Wedding Packages</h3>
+                            <p class="card-text">Plan your dream wedding with our customizable wedding packages, tailored to suit your needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="py-5">
+        <h2 class="text-center mb-4">Book Your Event</h2>
+            <p class="text-center">Fill out the form below to book our catering services</p>
+            <form id="booking-form" class="w-50 mx-auto">
+                <div class="form-group">
+                    <label for="event-type">Event Type:</label>
+                    <select class="form-control" name="event-type" id="event-type" onchange="loadPackages(this.value)">
+                        <option value="birthday">Birthday Party</option>
+                        <option value="wedding">Wedding</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="package">Select Package:</label>
+                    <select class="form-control" name="package" id="package">
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="event-date">Event Date:</label>
+                    <input type="date" class="form-control" id="event-date" name="event-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="event-time">Event Time:</label>
+                    <input type="time" class="form-control" id="event-time" name="event-time" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="attendees">Number of Attendees:</label>
+                    <input type="number" class="form-control" id="attendees" name="attendees" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location Preference:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="listed-location" name="location" value="listed-location" checked>
+                        <label class="form-check-label" for="listed-location">Listed Location</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="own-location" name="location" value="own-location">
+                        <label class="form-check-label" for="own-location">Own Location</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Book Now</button>
+            </form>
+            <p id="message" class="text-center mt-4"></p>
+        </div>
+    </section>
+
+
+
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2024 T.L.C Catering Services</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="login-username">Username:</label>
+                            <input type="text" class="form-control" id="login-username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password:</label>
+                            <input type="password" class="form-control" id="login-password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="register-form">
+                        <div class="form-group">
+                            <label for="register-username">Username:</label>
+                            <input type="text" class="form-control" id="register-username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">Email:</label>
+                            <input type="email" class="form-control" id="register-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Password:</label>
+                            <input type="password" class="form-control" id="register-password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPackages(document.getElementById('event-type').value);
+        });
+        
+
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = {
+                username: document.getElementById('login-username').value,
+                password: document.getElementById('login-password').value
+            };
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert('Login failed: ' + data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = {
+                username: document.getElementById('register-username').value,
+                email: document.getElementById('register-email').value,
+                password: document.getElementById('register-password').value
+            };
+            fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert('Registration failed: ' + data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        function loadPackages(eventType) {
+            fetch(`/packages?event_type=${eventType}`)
+                .then(response => response.json())
+                .then(data => {
+                    const packageSelect = document.getElementById('package');
+                    packageSelect.innerHTML = '';
+                    data.packages.forEach(pkg => {
+                        const option = document.createElement('option');
+                        option.value = pkg.packageID;
+                        option.textContent = pkg.name;
+                        packageSelect.appendChild(option);
+                    });
+                })
+                // .catch(error => console.error('Error:', error));
+        }
+
+        document.getElementById('booking-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const packageId = document.getElementById('package').value;
+            const formData = {
+                event_type: document.getElementById('event-type').value,
+                package: packageId,
+                event_date: document.getElementById('event-date').value,
+                event_time: document.getElementById('event-time').value,
+                attendees: document.getElementById('attendees').value,
+                location: document.querySelector('input[name="location"]:checked').value
+            };
+
+            fetch('/bookings', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                const messageElement = document.getElementById('message');
+                messageElement.className = '';
+                if (data.success) {
+                    messageElement.textContent = 'Booking successful!';
+                    messageElement.style.color = 'green';
+                    messageElement.classList.add('text-success');
+                    //document.getElementById('booking-form').reset();
+                } else {
+                    messageElement.textContent = 'Error: ' + data.message;
+                    messageElement.style.color = 'red';
+                    messageElement.classList.add('text-danger');
+                }
+            })
+            //.catch(error => console.error('Error:', error));
+        });
+
+        // Load initial packages
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPackages(document.getElementById('event-type').value);
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
