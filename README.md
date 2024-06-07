@@ -18,6 +18,10 @@ administrative features to manage event packages and inquiries.
 
 Please go through [Documentation](Documentation.pdf) for more information.
 
-<img src="images/1.png" alt="Alt Text" width = "600" height = "300">
+<img src="images/1.png" alt="Alt Text" width = "600" height = "400">
 
-<img src="images/1.png" alt="Alt Text">
+
+<img src="images/2.png" alt="Alt Text" width = "600" height = "300">
+
+
+<img src="images/3.png" alt="Alt Text" width = "600" height = "300">
