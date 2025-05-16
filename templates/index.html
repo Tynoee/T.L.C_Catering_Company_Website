@@ -14,19 +14,23 @@
         <p>Looking for a perfect food affair to complement your special occasion?</p>
         <p>Look no further! T.L.C Catering Services provide a sumptuous food itinerary to fulfill your each and every catering need. Be it a large, mid or small-sized event, our full-range of outdoor and indoor catering services cover complete food preparation and presentation for formal and informal gatherings.</p>
         
+     
+
+
+    
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Our Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#booking">Book Your Event</a>
-                    </li>
-                    {% if current_user.is_authenticated %}
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse justify-content-end">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Our Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#booking">Book Your Event</a>
+                        </li>{% if current_user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
                         </li>
@@ -39,6 +43,8 @@
                         </li>
                     {% endif %}
                 </ul>
+                </div>
+                
             </div>
         </nav>
     </header>
