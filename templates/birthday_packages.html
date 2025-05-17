@@ -58,6 +58,7 @@
                                 <div class="package-detail"><i class="fas fa-music"></i> <b>Entertainment:</b> {{ package['description'] | safe | regex_findall('<li><b>Entertainment:</b> (.*?)</li>') | first }}</div>
                                 <div class="package-detail"><i class="fas fa-gift"></i> <b>Party Favors:</b> {{ package['description'] | safe | regex_findall('<li><b>Party Favors:</b> (.*?)</li>') | first }}</div>
                                 <div class="package-detail"><i class="fas fa-dollar-sign"></i> <b>Price:</b> {{ package['description'] | safe | regex_findall('<li><b>Price:</b> (.*?)</li>') | first }}</div>
+                                <div class="package-detail"><i class="fas fa-users"></i> <b>Max Attendees:</b> {{ package['max_attendees'] }}</div>
                             </div>
                         </div>
                     </div>
