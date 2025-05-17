@@ -3,3 +3,5 @@ Flask-Login
 Flask-SQLAlchemy
 Flask-Migrate
 Werkzeug
+Jinja2
+gunicorn
