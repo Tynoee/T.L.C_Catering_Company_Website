@@ -29,6 +29,21 @@ header::before {
     animation: slideIn 1s ease-in-out;
 }
 
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+    border-radius: 25px;
+    font-size: 25px;         
+    padding: 10px 18px;        
+    margin: 0 20px;            
+    border-radius: 25px;
+    
+}
+
+
+.navbar-brand{
+    font-size: 30px;
+}
 @keyframes slideIn {
     from {
         transform: translateX(-100%);

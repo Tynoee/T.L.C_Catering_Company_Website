@@ -15,7 +15,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">T.L.C Catering Services</a>
+        <a class="navbar-brand" href="/"><b>T.L.C Catering Services</b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -52,7 +52,7 @@
                 {% for package in packages %}
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <img src="{{ url_for('static', filename='images/' ~ package['image']) }}" class="card-img-top" alt="{{ package['name'] }}">
+                        <a href="{{ url_for('index') }}#booking"><img src="{{ url_for('static', filename='images/' ~ package['image']) }}" class="card-img-top" alt="{{ package['name'] }}"></a>
                         <div class="card-body">
                             <h3 class="card-title">{{ package['name'] }}</h3>
                             <div class="package-details">
