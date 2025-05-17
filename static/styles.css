@@ -27,7 +27,7 @@ header::before {
 
 header h1 {
     margin: 0;
-    font-size: 3.5em;
+    font-size: 2.5em;
     font-family: 'Lobster', cursive;
     z-index: 1;
     position: relative;
@@ -46,9 +46,9 @@ header p{
 .navbar-dark .navbar-nav .nav-link {
     color: white;
     font-weight: bold;
-    font-size: 1.5em;         
-    padding: 10px 18px;        
-    margin: 0 20px;            
+    font-size: 1.0em;         
+    padding: 10px 12px;        
+    margin: 0 10px;            
     border-radius: 15px;
     
 }
@@ -63,7 +63,7 @@ header p{
 }
 
 .navbar-brand{
-    font-size: 25px;
+    font-size: 20px;
 }
 
 nav ul {
@@ -95,7 +95,7 @@ h2 {
     margin-bottom: 20px;
     font-family: 'Lobster', cursive;
     color: #ff4500;
-    font-size: 3.0em;
+    font-size: 2.0em;
 }
 
 #services {
