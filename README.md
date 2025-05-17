@@ -5,6 +5,8 @@ the ability to view various event packages, make bookings, and contact the servi
 through a contact form. The application also includes user authentication and 
 administrative features to manage event packages and inquiries.
 
+🌐 [Live Website](https://t-l-c-catering-company-website.onrender.com)
+
 # Technologies Used
 - **HTML5**: Markup language for creating the structure of the web pages.
 - **CSS3**: Stylesheet language for styling the web pages.
